@@ -30,5 +30,8 @@ jobs:
         with:
           node-version: 12
           
+      - name: install surge
+        run: npm install -g surge
+          
       - name: deploy on surge
         run: surge . marketingsite.surge.sh --token ${{secrets.SECRET-KEY}}
