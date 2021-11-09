@@ -26,12 +26,14 @@ jobs:
       # Runs a single command using the runners shell
       - name: installing note
         uses: actions/setup-node@v2-beta
-         with:
+        with:
           node-version: 14
 
       # Runs a set of commands using the runners shell
-      - name: installing surge
-        run: npm install -g surge
+      - name: install node js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12
         
       - name: deploying the website
         run: surge ./ marketingsite.surge.sh --token ${{secrets.SECRET-KEY}}
